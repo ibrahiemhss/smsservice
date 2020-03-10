@@ -171,7 +171,26 @@ public class SocketIOService extends Service {
             @Override
             public void call(Object... args) {
               //  Exception e = (Exception) args[0];
-                Log.e("Socket_evevnt", "EVENT_DISCONNECT ["+args[0].toString()+"]");
+               // Object oo =args[0];
+                Log.e("Socket_evevnt", "EVENT_DISCONNECT ");
+/*
+
+                for(Object obj: args){
+                    Log.e("Socket_evevnt", "EVENT_DISCONNECT ["+obj.toString()+"]");
+                    Transport transport = (Transport) obj;
+                    transport.on(Transport.EVENT_ERROR, new Emitter.Listener() {
+                        @Override
+                        public void call(Object... args) {
+                            Exception e = (Exception) args[0];
+                            Log.e("Socket_evevnt", "Transport error " + e);
+                            Log.e("Socket_evevnt", "EVENT_DISCONNECT error"+ e);
+
+                            e.printStackTrace();
+                            e.getCause().printStackTrace();
+                        }
+                    });
+                }
+*/
 
                 Intent intent = new Intent(SocketEventConstants.socketConnection);
                 intent.putExtra(Constants.EXTR_CONNECTION_STATUS, false);
