@@ -105,10 +105,6 @@ public class MainActivity extends Activity implements SocketListener {
                 if (null == mUsername) return;
                 // if (!mSocket.connected()) return;
 
-                if (!mTyping) {
-                    mTyping = true;
-                  //  AppSocketListener.getInstance().emit("typing");
-                }
 
             }
 

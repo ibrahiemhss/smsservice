@@ -159,7 +159,7 @@ public class SocketIOService extends Service {
         mSocket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                Log.e("Socket_evevnt", "EVENT_CONNECT ["+args.toString()+"]");
+                Log.e("Socket_evevnt", "EVENT_CONNECT ["+args[0].toString()+"]");
 
                 Intent intent = new Intent(SocketEventConstants.socketConnection);
                 intent.putExtra(Constants.EXTR_CONNECTION_STATUS, true);
@@ -170,10 +170,8 @@ public class SocketIOService extends Service {
         mSocket.on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                Exception e = (Exception) args[0];
-                Log.e("Socket_evevnt", "EVENT_DISCONNECT ["+e+"]");
-                e.printStackTrace();
-                e.getCause().printStackTrace();
+              //  Exception e = (Exception) args[0];
+                Log.e("Socket_evevnt", "EVENT_DISCONNECT ["+args[0].toString()+"]");
 
                 Intent intent = new Intent(SocketEventConstants.socketConnection);
                 intent.putExtra(Constants.EXTR_CONNECTION_STATUS, false);
@@ -185,7 +183,7 @@ public class SocketIOService extends Service {
         mSocket.on(Socket.EVENT_CONNECT_ERROR, new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                Log.e("Socket_evevnt", "EVENT_CONNECT_ERROR ["+args.toString()+"]");
+                Log.e("Socket_evevnt", "EVENT_CONNECT_ERROR ["+args[0].toString()+"]");
 
                 Intent intent = new Intent(SocketEventConstants.connectionFailure);
                 broadcastEvent(intent);
@@ -195,7 +193,7 @@ public class SocketIOService extends Service {
         mSocket.on(Socket.EVENT_CONNECT_TIMEOUT, new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                Log.e("Socket_evevnt", "EVENT_CONNECT_TIMEOUT ["+args.toString()+"]");
+                Log.e("Socket_evevnt", "EVENT_CONNECT_TIMEOUT ["+args[0].toString()+"]");
 
                 Intent intent = new Intent(SocketEventConstants.connectionFailure);
                 broadcastEvent(intent);
