@@ -25,9 +25,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        PreferenceStorage.storeUsername("ibrahim");
-        new Thread(new MainThread()).start();
 
+        new Thread(new MainThread()).start();
 
     }
 
@@ -38,12 +37,12 @@ public class MainActivity extends Activity {
         public void run() {
 
             try {
-                 int PORT = 3001;
+                int PORT = 3001;
 
-                mSocket = new Socket("95.216.223.177",3001);
+                mSocket = new Socket("95.216.223.177", 3001);
 
                 new Thread(new GetThread()).start();
-            } catch (UnknownHostException e1){
+            } catch (UnknownHostException e1) {
                 e1.printStackTrace();
             } catch (IOException e1) {
                 e1.printStackTrace();
@@ -57,22 +56,20 @@ public class MainActivity extends Activity {
         public void run() {
 
             try {
-                InputStreamReader isR=new InputStreamReader(mSocket.getInputStream());
-                BufferedReader bfr=new BufferedReader(isR);
-                while(true) {
+                InputStreamReader isR = new InputStreamReader(mSocket.getInputStream());
+                BufferedReader bfr = new BufferedReader(isR);
+                while (true) {
                     String textMessage = bfr.readLine();
-                    Log.d("getSocketValue","textMessage");
-                    // TODO: Insert logic which use the recived message (textMessage)
+                    Log.d("getSocketValue", textMessage);
+
                 }
+            } catch (UnknownHostException e1) {
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
-            catch (UnknownHostException e1){
-            e1.printStackTrace();
-        } catch (IOException e1) {
-            e1.printStackTrace();
         }
     }
-}
-
 
 
 }
