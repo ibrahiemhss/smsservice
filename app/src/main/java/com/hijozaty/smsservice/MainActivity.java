@@ -37,7 +37,6 @@ public class MainActivity extends Activity {
         public void run() {
 
             try {
-                int PORT = 3001;
 
                 mSocket = new Socket("95.216.223.177", 3001);
 
