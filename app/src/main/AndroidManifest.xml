@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
 
-        <service
+       <!-- <service
             android:name="com.hijozaty.smsservice.socketioservice.SocketIOService">
             <intent-filter>
                 <action android:name="com.example.mahabali.socketioservice.SocketIOService" >
@@ -36,7 +36,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-        </receiver>
+        </receiver>-->
 
     </application>
 
